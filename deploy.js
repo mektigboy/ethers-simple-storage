@@ -1,4 +1,5 @@
 const ethers = require("ethers");
+const fs = require("fs-extra");
 
 async function main() {
     const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545"); // Connect to local blockchain.
@@ -6,6 +7,8 @@ async function main() {
         "dd7ce4bfa28c2f52da2e830c2f16472935c2e3a4e38bd21ccce413b9dc6a4e73",
         provider
     );
+    const abi = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.abi", "utf8");
+    const binary = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.bin", "utf8");
 }
 
 main()
