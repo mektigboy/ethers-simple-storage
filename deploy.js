@@ -1,7 +1,11 @@
+const ethers = require("ethers");
+
 async function main() {
-    console.log("Hello!");
-    let variable = 5;
-    console.log(variable);
+    const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545"); // Connect to local blockchain.
+    const wallet = new ethers.Wallet(
+        "dd7ce4bfa28c2f52da2e830c2f16472935c2e3a4e38bd21ccce413b9dc6a4e73",
+        provider
+    );
 }
 
 main()
