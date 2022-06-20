@@ -4,7 +4,7 @@ const fs = require("fs-extra");
 require("dotenv").config();
 
 async function main() {
-    const provider = new ethers.providers.JsonRpcProvider("http://0.0.0.0:8545"); // Connect to local blockchain.
+    const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL); // Connect to local blockchain.
     const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
     const abi = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.abi", "utf8");
     const binary = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.bin", "utf8");
